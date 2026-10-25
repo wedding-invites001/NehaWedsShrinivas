@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neha & Shrinivas – Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Cinzel:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+
+</head>
+<body class="locked">
+
+<!-- ============ OPENING ANIMATION ============ -->
+<div id="intro">
+  <div class="glow"></div>
+  <div class="bells" id="bells"></div>
+  <div class="door l"><svg viewBox="0 0 100 200" fill="none" stroke="#b8862b" stroke-width="1.2"><path d="M100 0v200M100 40C60 40 40 70 40 100s20 60 60 60M100 70C80 75 65 90 65 100s15 25 35 30"/><circle cx="100" cy="100" r="6"/></svg></div>
+  <div class="door r"><svg viewBox="0 0 100 200" fill="none" stroke="#b8862b" stroke-width="1.2" style="transform:scaleX(-1)"><path d="M100 0v200M100 40C60 40 40 70 40 100s20 60 60 60M100 70C80 75 65 90 65 100s15 25 35 30"/><circle cx="100" cy="100" r="6"/></svg></div>
+  <div class="seal">
+    <div class="seal-circle"><span id="seal-ini">N & S</span></div>
+    <p class="caps">You are cordially invited</p>
+    <button id="openBtn">OPEN INVITATION</button>
+  </div>
+</div>
+<div id="petals"></div>
+<button id="music" title="Music on/off" aria-label="Toggle music">♪</button>
+
+<!-- ============ HERO ============ -->
+<header id="hero">
+  <div class="hang a" id="hangA"></div><div class="hang b" id="hangB"></div>
+  <div class="arch">
+    <svg class="lotus" viewBox="0 0 40 40"><path d="M20 6c-4 6-4 14 0 20 4-6 4-14 0-20zM8 14c2 8 7 12 12 12-1-7-5-11-12-12zM32 14c-2 8-7 12-12 12 1-7 5-11 12-12zM20 26c-5 0-9 3-12 6M20 26c5 0 9 3 12 6"/></svg>
+    <p class="caps" style="margin-top:22px" data-k="intro"></p>
+    <h1 class="hero-names" style="margin-top:26px"><span data-k="bride"></span><div class="amp">&amp;</div><span data-k="groom"></span></h1>
+    <p class="caps" style="margin-top:34px" data-k="invite"></p>
+    <div class="hero-meta">
+      <div><p class="caps" id="h-date"></p></div><div class="sep"></div><div><p class="caps" id="h-place"></p></div>
+    </div>
+  </div>
+  <div class="scroll caps">Scroll to discover our story<br>⌄</div>
+</header>
+
+<!-- ============ BLESSING ============ -->
+<section id="blessing">
+  <div class="orn"><svg class="lotus" viewBox="0 0 40 40"><path d="M20 6c-4 6-4 14 0 20 4-6 4-14 0-20zM8 14c2 8 7 12 12 12-1-7-5-11-12-12zM32 14c-2 8-7 12-12 12 1-7 5-11 12-12z"/></svg></div>
+  <div class="blessing"><p class="sl" data-k="shloka"></p><p data-k="blessing"></p></div>
+</section>
+
+<!-- ============ STORY ============ -->
+<section id="story">
+  <h2>Our Story</h2><div class="orn">✦</div>
+  <div class="timeline" id="timeline"></div>
+</section>
+
+<!-- ============ EVENTS ============ -->
+<section id="events">
+  <h2>Join Us</h2><div class="orn">✦</div>
+  <div class="events" id="eventCards"></div>
+</section>
+
+<!-- ============ COUNTDOWN ============ -->
+<section id="count">
+  <h2>Counting Down to Our Wedding</h2><div class="orn">✦</div>
+  <div class="timer" id="timer"></div>
+  <p id="countMsg" style="margin-top:22px;font-style:italic"></p>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section id="gallery">
+  <h2>Moments Together</h2><div class="orn">✦</div>
+  <div class="gallery" id="galleryGrid"></div>
+</section>
+
+<footer>
+  <div class="orn"><svg class="lotus" viewBox="0 0 40 40"><path d="M20 6c-4 6-4 14 0 20 4-6 4-14 0-20zM8 14c2 8 7 12 12 12-1-7-5-11-12-12zM32 14c-2 8-7 12-12 12 1-7 5-11 12-12z"/></svg></div>
+  <p data-k="closing"></p>
+  <p class="names" style="margin-top:14px"><span data-k="bride"></span> &amp; <span data-k="groom"></span></p>
+  <p class="caps" style="margin-top:14px" data-k="hashtag"></p>
+</footer>
+<div id="lb"><img alt=""></div>
+
+<script src="./script.js" defer></script>
+</body>
+</html>
