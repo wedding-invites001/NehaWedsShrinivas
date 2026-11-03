@@ -31,9 +31,9 @@ const CONFIG = {
 
   // Add your photo paths or URLs here. Leave empty [] to show placeholders.
   photos: [
-    // "photos/1.jpg", "photos/2.jpg", "photos/3.jpg"
+    "photos/1.jpeg", "photos/2.jpeg", "photos/3.jpeg", "photos/4.jpeg", "photos/5.jpeg", "photos/6.jpeg" ,"photos/7.jpeg", "photos/8.jpeg"
   ],
-  placeholderCount: 6,
+  placeholderCount: 8,
 
   // Optional background music (e.g. "music/shehnai.mp3"). Leave "" for none.
   music: ""
