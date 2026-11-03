@@ -16,12 +16,13 @@ const CONFIG = {
   weddingDateTime: "2027-02-14T11:30:00",
 
   events: [
-    { title: "Wedding", date: "Thursday, 3 December 2026", time: "9:25 AM onwards",
-      venue: " the Venue", address: "Full venue address, City, State",
-      mapQuery: "Venue Name, City" },
-    { title: "Reception", date: "Sunday, 14 February 2027", time: "7:00 PM onwards",
-      venue: " Venue", address: "Full venue address, City, State",
-      mapQuery: "Reception Venue, City" }
+    { title: "Wedding / Reception", date: "Thursday, 3 December 2026", time: "9:25 AM onwards",
+      venue: " The Venue", address: "Bishop Rebello Road opposit Ravindra Bhavan, fatorda Margao, Goa",
+      mapQuery: "Venue Name, City",
+      mapUrl: "https://maps.app.goo.gl/Fi7hh6Hd5fZeNT2HA" },
+    // { title: "Reception", date: "Sunday, 14 February 2027", time: "7:00 PM onwards",
+    //  venue: " The Venue", address: "Bishop Rebello Road opposit Ravindra Bhavan, fatorda Margao, Goa",
+    //   mapQuery: "Reception Venue, City" }
   ],
 
   story: [
@@ -40,12 +41,17 @@ const CONFIG = {
 
 /* ---------------- RENDER ---------------- */
 const $ = s => document.querySelector(s);
+
 document.querySelectorAll('[data-k]').forEach(el => el.textContent = CONFIG[el.dataset.k]);
+
 $('#seal-ini').textContent = CONFIG.bride[0] + ' & ' + CONFIG.groom[0];
+
 document.title = `${CONFIG.bride} & ${CONFIG.groom} – Wedding Invitation`;
 
 const W = CONFIG.events[0];
-$('#h-date').textContent = W.date.replace(/^\w+, /, '');
+
+$('#h-date').textContent = W.date.replace(/^\w+,\s*/, '');
+
 $('#h-place').textContent = W.venue;
 
 $('#timeline').innerHTML = CONFIG.story.map(s =>
@@ -53,23 +59,27 @@ $('#timeline').innerHTML = CONFIG.story.map(s =>
 
 $('#eventCards').innerHTML = CONFIG.events.map(e => {
   const q = encodeURIComponent(e.mapQuery);
+
   return `<article class="card"><p class="caps" style="color:var(--gold)">${e.time}</p>
   <h3>${e.title}</h3><p class="when">${e.date}</p>
   <p class="where">${e.venue}<br><small>${e.address}</small></p>
   <iframe loading="lazy" title="Map of ${e.venue}" src="https://www.google.com/maps?q=${q}&output=embed"></iframe>
-  <a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q}">GET DIRECTIONS</a></article>`;
+  <a class="btn" target="_blank" rel="noopener" href="${e.mapUrl || `https://www.google.com/maps/search/?api=1&query=${q}`}">GET DIRECTIONS</a></article>`;
 }).join('');
 
 const g = $('#galleryGrid');
+
 if (CONFIG.photos.length) {
   g.innerHTML = CONFIG.photos.map(p => `<figure><img loading="lazy" src="${p}" alt="${CONFIG.bride} and ${CONFIG.groom}"></figure>`).join('');
 } else {
   g.innerHTML = Array.from({length: CONFIG.placeholderCount}, () => `<figure><span class="ph">Your photo<br>here</span></figure>`).join('');
 }
+
 g.addEventListener('click', e => {
   const im = e.target.closest('figure')?.querySelector('img'); if (!im) return;
   $('#lb img').src = im.src; $('#lb').classList.add('on');
 });
+
 $('#lb').onclick = () => $('#lb').classList.remove('on');
 
 /* hanging flowers + bells */
@@ -78,18 +88,29 @@ $('#hangA').innerHTML = hang(); $('#hangB').innerHTML = hang();
 $('#bells').innerHTML = Array.from({length: 6}, () => '<div class="bell"><i></i><b></b></div>').join('');
 
 /* ---------------- COUNTDOWN ---------------- */
-const target = new Date(CONFIG.weddingDateTime).getTime();
+const target = new Date('2026-12-03T00:00:00').getTime();
+
 $('#timer').innerHTML = ['Days','Hours','Minutes','Seconds'].map(u =>
   `<div class="unit"><b id="t-${u}">00</b><span class="caps">${u}</span></div>`).join('');
+
 function tick() {
   let d = target - Date.now();
-  if (d <= 0) { ['Days','Hours','Minutes','Seconds'].forEach(u => $('#t-' + u).textContent = '00');
-    $('#countMsg').textContent = 'Today is the day. Thank you for celebrating with us!'; return; }
+
+  if (d <= 0) {
+    ['Days','Hours','Minutes','Seconds'].forEach(u => $('#t-' + u).textContent = '00');
+    $('#countMsg').textContent = 'Today is the day. Thank you for celebrating with us!';
+    return;
+  }
+
   const v = { Days: Math.floor(d/864e5), Hours: Math.floor(d/36e5)%24, Minutes: Math.floor(d/6e4)%60, Seconds: Math.floor(d/1e3)%60 };
+
   for (const k in v) $('#t-' + k).textContent = String(v[k]).padStart(2, '0');
-  $('#countMsg').textContent = `Until ${W.date}`;
+
+  $('#countMsg').textContent = `Until December 3, 2026`;
 }
-tick(); setInterval(tick, 1000);
+
+tick();
+setInterval(tick, 1000);
 
 /* ---------------- OPENING SEQUENCE ---------------- */
 function petals(n) {
