@@ -5,7 +5,7 @@ const CONFIG = {
   bride: "Neha",
   groom: "Shrinivas",
   intro: "Together with their families",
-  invite: "Joyfully invite you to celebrate their wedding",
+  invite: "Joyfully invite you to celebrate our wedding",
   hashtag: "#NehaWedsShrinivas",
   closing: "With love, and with gratitude for your presence.",
 
@@ -16,7 +16,7 @@ const CONFIG = {
   weddingDateTime: "2027-02-14T11:30:00",
 
   events: [
-    { title: "Wedding / Reception", date: "Thursday, 3 December 2026", time: "9:25 AM onwards",
+    {title: "Wedding - 9:30 AM / Reception - 12:30 PM ", date: "Thursday, 3 December 2026", time: "Celeberations",
       venue: " The Venue", address: "Bishop Rebello Road opposit Ravindra Bhavan, fatorda Margao, Goa",
       mapQuery: "Venue Name, City",
       mapUrl: "https://maps.app.goo.gl/Fi7hh6Hd5fZeNT2HA" },
